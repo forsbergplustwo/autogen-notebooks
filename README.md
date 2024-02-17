@@ -30,3 +30,9 @@ _Note: The `local-model` is optional._
 3. Use "Run all" to set everything up
 4. Tell it your task.
 5. When re-running, it is recommended to delete `.cache/` folder and change `CACHE_SEED` constant first.
+
+### Learnings
+- system_message: Given to agents each time they are called on. Be specific about steps they should take. Be specific about the output you want.
+- description: Used by the Manager of GroupChat to choose which agent should go next. it checks the last message, and is asked to pick a next agent, based on their descriptiond.
+- retreive_agents: Needs both the agent and user_proxy to work. Only user_proxy agents can run functions. user_proxy agents don't have to interact with human.
+- models: gpt3.5 is much faster but less reliable at orchestration. I've found that having Managers as gpt4 and then agents as 3.5 gives good results.
